@@ -1,0 +1,266 @@
+/* propiedades globales */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* propiedades globales */
+
+body {
+    width: 95%;
+    padding: auto;
+    margin: auto;
+    height: 100vh;
+}
+header {
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 60px;
+}
+
+nav {
+    padding: 8px;
+}
+/* propiedades globales */
+
+.logo {
+    padding: 8px;
+    margin-left: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.logo a {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 18;
+    letter-spacing: 0px;
+    text-decoration: none;
+}
+
+nav ul {
+    float: right;
+}
+
+nav ul li {
+    display: inline-block;
+    padding-right: 20px;
+}
+nav ul li:not(:first-child) {
+    margin-left: 48px;
+}
+nav ul li:last-child {
+    margin-right: 24px;
+}
+
+nav ul li a {
+    display: inline-block;
+    outline: none;
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1.2px;
+    font-weight: 600;
+}
+
+
+
+#nav:checked + .nav-btn {
+    transform: rotate(45deg);
+}
+
+#nav:checked + .nav-btn i {
+    background: #000;
+    transition: transform 0.2s ease;
+}
+
+#nav:checked + .nav-btn i:nth-child(1) {
+    transform: translateY(6px) rotate(180deg);
+}
+#nav:checked + .nav-btn i:nth-child(2) {
+    opacity: 0;
+}
+
+#nav:checked + .nav-btn i:nth-child(3) {
+    transform: translateY(-6px) rotate(90deg);
+}
+
+#nav:checked ~ .nav-wrapper {
+    z-index: 9990;
+    opacity: 1;
+
+}
+
+#nav:checked ~ .nav-wrapper ul li a  {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+section {
+    flex-direction: column;
+    padding: 5px;
+}
+
+
+.titulo-categoria {
+    font-family: "Amatic SC", cursive;
+    font-size: 20px;
+
+    color: tomato;
+    padding: 5px 0px 5px 5px;
+
+}
+.categoria {
+    padding-left: 5px;
+}
+/* Cajita de menu */
+
+.producto {
+    padding: 15 5 0 5;
+    margin-bottom: 10px;
+}
+
+.producto-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    color: rgb(15, 15, 15);
+    border-color: grey;
+    border-bottom-style: dotted;
+    border-width: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+}
+
+.producto-nombre {
+    font-family: "Amatic SC", cursive;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.producto-precio {
+    color: rgb(104, 104, 104);
+    font-size: 15px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.producto-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.producto-imagen .img {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.producto-descripcion {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    color: #353535;
+    padding: 10px;
+}
+
+footer {
+    height: 100px;
+    background-color: grey;
+}
+
+/* MEDIA QUERIES */
+
+
+@media screen and (max-width: 864px) {
+    .logo {
+        padding: 0;
+    }
+
+    .nav-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: rgb(173, 16, 16);
+        opacity: 0;
+        transition: all 0.2s ease;
+    }
+
+    .nav-wrapper ul {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+    }
+
+    .nav-wrapper ul li {
+        display: block;
+        float: none;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+        font-family: "Open Sans", sans-serif;
+
+    }
+
+    .nav-wrapper ul li:not(:first-child) {
+        margin-left: 0;
+    }
+
+    .nav-wrapper ul li a {
+        padding-top: 10px 24px;
+        opacity: 0;
+        color: #000;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+        transform: translateX(-20px);
+        transition: all 0.2s ease;
+    }
+
+    .nav-btn {
+        position: fixed;
+        right: 10px;
+        top: 10px;
+        display: block;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        z-index: 9999;
+        border-radius: 50px;
+    }
+
+    .nav-btn i {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: #000;
+        border-radius: 2px;
+        margin-left: 14px;
+    }
+
+    .nav-btn i:nth-child(1) {
+        margin-top: 16px;
+    }
+    .nav-btn i:nth-child(2) {
+        margin-top: 4px;
+        opacity: 1;
+    }
+    .nav-btn i:nth-child(3) {
+        margin-top: 4px;
+    }
+}
